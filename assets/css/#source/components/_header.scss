@@ -5,4 +5,179 @@ header {
 	width: 100%;
 	padding-top: 25px;
 	padding-bottom: 30px;
+
+	.container {
+		position: relative;
+		display: flex;
+		align-items: center;
+	}
+
+	@at-root .#{header} {
+
+		&__row {
+			display: flex;
+			flex-grow: 1;
+			margin-left: 54px;
+		}
+
+		/*Переключение языка*/
+		&__languages-btn {
+			display: flex;
+			margin-left: auto;
+			font-family: $font-family;
+			line-height: 1.125;
+			font-weight: bold;
+			text-transform: uppercase;
+			color: #828282;
+
+			span {
+				cursor: pointer;
+				display: block;
+
+				&.active {
+					color: $color1;
+				}
+
+				&:nth-child(1) {
+					position: relative;
+					margin-right: 21px;
+
+					&::before {
+						content: "";
+						position: absolute;
+						top: 50%;
+						right: -11px;
+						width: 1px;
+						height: 16px;
+						background-color: #E0E0E0;
+						transform: translateY(-50%);
+					}
+				}
+			}
+		}
+
+		/*Корзина*/
+		&__basket {
+			cursor: pointer;
+			position: relative;
+			margin-left: 29px;
+
+			svg {
+				width: 28px;
+				height: 28px;
+			}
+
+			&-count {
+				position: absolute;
+				top: -6px;
+				right: -12px;
+				width: 21px;
+				height: 21px;
+				font-family: $font-family2;
+				font-weight: 500;
+				font-size: 13px;
+				line-height: 23px;
+				color: #fff;
+				background-color: $color1;
+				border-radius: 50%;
+				text-align: center;
+			}
+		}
+
+		@include _1170 {
+			&__row {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				flex-direction: column;
+				margin-left: 0;
+				width: 100%;
+				background-color: $color1;
+			}
+	
+			/*Переключение языка*/
+			&__languages-btn {
+				margin-right: auto;
+				line-height: 42px;
+				font-weight: bold;
+				color: #fff;
+	
+				span {
+					width:42px;
+					height: 42px;
+					border-radius: 50px;
+					text-align: center;
+	
+					&.active {
+						color: #fff;
+						border: 2px solid #fff;
+					}
+	
+					&:nth-child(1) {
+						&::before {
+						}
+					}
+				}
+			}
+		}
+	}
+
+	
+
+}
+
+/*Меню*/
+.menu {
+	display: flex;
+
+	&__item {
+		margin-right: 35px;
+
+		a {
+			display: inline-block;
+			font-family: $font-family;
+			line-height: 1.125;
+			color: $color3;
+		}
+	}
+}
+
+.hamburger {
+	cursor: pointer;
+	position: relative;
+	display: none;
+	width: 30px;
+	height: 15px;
+	overflow: hidden;
+	
+	span, &::before, &::after {
+		position: absolute;
+		right: 0;
+		height: 3px;
+		background-color: $color1;
+		transform: skewX(-45deg) translateX(1.5px);
+	}
+
+	span {
+		bottom: 0;
+		width: 100%;
+	}
+
+	&::before, &::after {
+		content: "";
+	}
+
+	&::before {
+		top: calc(50% - 1.5px);
+		width: 91.66%
+	}
+
+	&::after {
+		top: 0;
+		width: 83.33%
+	}
+
+	@include _1170 {
+		display: block;	
+	}
 }

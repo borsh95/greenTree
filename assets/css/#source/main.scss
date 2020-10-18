@@ -1,21 +1,7 @@
 @import "fonts";
 @import "nullstyle";
-
+@import "mixins";
 @import "variables";
-
-
-@mixin _1170 {
-    @media (max-width: 1170px) {
-        @content;
-    }
-}
-
-@mixin _767 {
-    @media (max-width: 767px) {
-        @content;
-    }
-}
-
 
 html,
 body {
@@ -45,8 +31,23 @@ body {
     }
 }
 
+img {
+	display: inline-block;
+	max-width: 100%;
+}
+
 /*--------------------------------Other--------------------------------*/
 
 @import "components/header";
 
 @import "components/footer";
+
+.page {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.logo {
+	width: 146px;
+}

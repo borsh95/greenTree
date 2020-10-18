@@ -30,7 +30,7 @@ body {
     margin-right: auto;
     margin-left: auto;
     width: 100%;
-    max-width: 11px;
+    max-width: 1170px;
 
     @include _1170 {
         padding-right: 20px;
@@ -47,4 +47,11 @@ body {
 
 /*--------------------------------Other--------------------------------*/
 
-@include "components/header.scss"
+@import "components/header";
+@import "components/footer";
+
+.page {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
