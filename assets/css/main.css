@@ -1,0 +1,143 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'Comfortaa';
+  src: url("../fonts/Comfortaa-Bold.eot");
+  src: url("../fonts/Comfortaa-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Comfortaa-Bold.woff2") format("woff2"), url("../fonts/Comfortaa-Bold.woff") format("woff"), url("../fonts/Comfortaa-Bold.ttf") format("truetype"), url("../fonts/Comfortaa-Bold.svg#Comfortaa-Bold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url("../fonts/Comfortaa.eot");
+  src: url("../fonts/Comfortaa.eot?#iefix") format("embedded-opentype"), url("../fonts/Comfortaa.woff2") format("woff2"), url("../fonts/Comfortaa.woff") format("woff"), url("../fonts/Comfortaa.ttf") format("truetype"), url("../fonts/Comfortaa.svg#Comfortaa") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham Pro';
+  src: url("../fonts/GothamPro.eot");
+  src: url("../fonts/GothamPro.eot?#iefix") format("embedded-opentype"), url("../fonts/GothamPro.woff2") format("woff2"), url("../fonts/GothamPro.woff") format("woff"), url("../fonts/GothamPro.ttf") format("truetype"), url("../fonts/GothamPro.svg#GothamPro") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*Обнуление*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited, a:hover {
+  text-decoration: none;
+}
+
+a {
+  color: inherit;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*--------------------*/
+/***********************Main*/
+html,
+body {
+  font-family: "Comfortaa", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+}
+
+/*--------------------------------Common--------------------------------*/
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  max-width: 1156px;
+}
+
+@media (max-width: 1170px) {
+  .container {
+    padding-right: 20px;
+    padding-left: 20px;
+    max-width: 767px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding-right: 10px;
+    padding-left: 10px;
+    max-width: 100%;
+  }
+}
+
+/*--------------------------------Other--------------------------------*/
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 25px;
+  padding-bottom: 30px;
+}
+/*# sourceMappingURL=main.css.map */

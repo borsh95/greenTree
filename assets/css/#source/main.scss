@@ -1,0 +1,52 @@
+@import "fonts";
+@import "nullstyle";
+
+@import "variables";
+
+
+@mixin _1170 {
+    @media (max-width: 1170px) {
+        @content;
+    }
+}
+
+@mixin _767 {
+    @media (max-width: 767px) {
+        @content;
+    }
+}
+
+
+html,
+body {
+    font-family: $font-family;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+}
+
+/*--------------------------------Common--------------------------------*/
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    max-width: 1156px;
+
+    @include _1170 {
+        padding-right: 20px;
+        padding-left: 20px;
+        max-width: 767px;
+    }
+
+    @include _767 {
+        padding-right: 10px;
+        padding-left: 10px;
+        max-width: 100%;
+    }
+}
+
+/*--------------------------------Other--------------------------------*/
+
+@import "components/header";
+
+@import "components/footer";
