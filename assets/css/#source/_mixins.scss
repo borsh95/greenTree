@@ -1,10 +1,10 @@
-@mixin _1170 {
+@mixin table {
     @media (max-width: 1170px) {
         @content;
     }
 }
 
-@mixin _767 {
+@mixin mobile {
     @media (max-width: 767px) {
         @content;
     }

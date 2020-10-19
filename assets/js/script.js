@@ -1,109 +1,52 @@
-// parallax
-const parallax = document.getElementById("parallax");
+//dropdown 
+let dropdownBtn = document.querySelector('.dropdownBtn');
+let dropdownWrap = document.querySelector('.dropdownEl');
+let dropdownList = dropdownWrap.children[0];
 
-window.addEventListener("scroll", function () {
-    let offset = window.pageYOffset;
-    parallax.style.backgroundPositionY = 40 + offset / 150 + "%";
-})
+dropdownBtn.addEventListener("click", function () {
+	this.classList.toggle("active");
 
-
-// Card
-const wrapper = document.querySelectorAll(".card");
-
-wrapper.forEach(element => {
-    let state = {
-        mouseX: 0,
-        mouseY: 0,
-        height: element.clientHeight,
-        width: element.clientWidth
-    };
-
-    element.addEventListener("mousemove", ele => {
-        const card = element.querySelector(".card-inner");
-        const cardBg = card.querySelector(".card-bg");
-        state.mouseX = ele.pageX - element.offsetLeft - state.width / 2;
-        state.mouseY = ele.pageY - element.offsetTop - state.height / 2;
-
-        // parallax angle in card
-        const angleX = (state.mouseX / state.width) * 30;
-        const angleY = (state.mouseY / state.height) * -30;
-        card.style.transform = `rotateY(${angleX}deg) rotateX(${angleY}deg) `;
-
-        // parallax position of background in card
-        const posX = (state.mouseX / state.width) * -40;
-        const posY = (state.mouseY / state.height) * -40;
-        cardBg.style.transform = `translateX(${posX}px) translateY(${posY}px)`;
-    });
-
-    element.addEventListener("mouseout", () => {
-        const card = element.querySelector(".card-inner");
-        const cardBg = card.querySelector(".card-bg");
-        card.style.transform = `rotateY(0deg) rotateX(0deg) `;
-        cardBg.style.transform = `translateX(0px) translateY(0px)`;
-    });
+	if (this.classList.contains('active')) {
+		dropdownWrap.style.cssText = `min-height: ${dropdownList.offsetHeight}px`;
+	} else {
+		dropdownWrap.classList.remove('active');
+		dropdownWrap.style.cssText = `min-height: 0;
+		`;
+	}
 });
 
+//////
+let hamburger = document.querySelector('.hamburger');
+let dropdownMenu = document.querySelector('.header__row-wrap');
 
-// hamburger
-let hamburger = document.querySelector(".hamburger");
+let bgMenu = document.querySelector('.bg-menu');
 
-hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-});
+hamburger.addEventListener('click', function () {
+	if (this.classList.contains('active')) {
+		bgMenu.classList.add('active');
+	} else {
+		bgMenu.classList.remove('active');
+	}
+}, false);
 
+window.addEventListener('resize', function () {
+	let windowWidth = document.documentElement.clientWidth;
 
-// lazyload
-window.addEventListener('load', function () {
-    // setTimeout to simulate the delay from a real page load
-    setTimeout(lazyLoad, 1000);
+	if (hamburger.classList.contains('active') && windowWidth > 1170) {
+		hamburger.classList.remove('active');
+		dropdownMenu.style.minHeight = "0px";
+		bgMenu.classList.remove('active');
+	}
+}, false);
 
-});
+//Переключение языка сайта
+let languagesBtns = document.querySelector('.header__languages-btns');
 
-function lazyLoad() {
-    var images = document.querySelectorAll('.lazy');
+languagesBtns.addEventListener('click', function (e) {
+	let target = e.target;
 
-    // loop over each card image
-    images.forEach(function (image) {
-        var image_url = image.getAttribute('data-image-full');
+	if (target.closest('span') && target.classList.contains('active') || !target.closest('span')) return;
 
-        image.style.backgroundImage = 'url(' + image_url + '), ' + image.style.backgroundImage;
-        image.className = image.className + ' is-loaded';
-    });
-}
-
-// anchors
-var linkNav = document.querySelectorAll('[href^="#"]'), //выбираем все ссылки к якорю на странице
-    V = .3; // скорость, может иметь дробное значение через точку (чем меньше значение - тем больше скорость)
-
-for (var i = 0; i < linkNav.length; i++) {
-    linkNav[i].addEventListener('click', function (e) { //по клику на ссылку
-        e.preventDefault(); //отменяем стандартное поведение
-
-        var w = window.pageYOffset, // производим прокрутка прокрутка
-            hash = this.href.replace(/[^#]*(.*)/, '$1'); // к id элемента, к которому нужно перейти
-        t = document.querySelector(hash).getBoundingClientRect().top, // отступ от окна браузера до id
-            start = null;
-
-        requestAnimationFrame(step);
-
-        function step(time) {
-            if (start === null) start = time;
-            var progress = time - start,
-                r = (t < 0 ? Math.max(w - progress / V, w + t) : Math.min(w + progress / V, w + t));
-            window.scrollTo(0, r);
-            if (r != w + t) {
-                requestAnimationFrame(step)
-            } else {
-                location.hash = hash // URL с хэшем
-            }
-        }
-    }, false);
-}
-
-// input change
-document.addEventListener("change", function (event) {
-    let element = event.target;
-    if (element && element.matches(".d-focus")) {
-        element.classList[element.value ? "add" : "remove"]("-hasvalue");
-    }
-});
+	languagesBtns.querySelector('span.active').classList.remove('active');
+	target.classList.add('active');
+}, false);

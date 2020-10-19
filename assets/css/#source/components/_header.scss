@@ -5,23 +5,58 @@ header {
 	width: 100%;
 	padding-top: 25px;
 	padding-bottom: 30px;
+	z-index: 100;
+
+	.bg-menu {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		min-height: 0;
+		z-index: 101;
+		background-color: rgba(0, 0, 0, 0.4);
+		transition: min-height 600ms cubic-bezier(.86,0,.07,1);
+
+		&.active {
+			min-height: 100vh;
+			transition: min-height 600ms cubic-bezier(.86,0,.07,1);
+		}
+	}
 
 	.container {
-		position: relative;
 		display: flex;
 		align-items: center;
+	}
+
+	.dropdownEl {
+		height: auto;
+		overflow: visible;
+
+		@include table {
+			height: 0;
+			overflow: hidden;
+		}
 	}
 
 	@at-root .#{header} {
 
 		&__row {
+			position: relative;
 			display: flex;
-			flex-grow: 1;
-			margin-left: 54px;
+			width: 100%;
+			z-index: 101;
+			
+			&-wrap {
+				display: flex;
+				flex-grow: 1;
+				margin-left: 54px;
+				z-index: 102;
+				transition-timing-function: cubic-bezier(.86,0,.07,1);
+			}
 		}
 
 		/*Переключение языка*/
-		&__languages-btn {
+		&__languages-btns {
 			display: flex;
 			margin-left: auto;
 			font-family: $font-family;
@@ -76,7 +111,7 @@ header {
 				font-family: $font-family2;
 				font-weight: 500;
 				font-size: 13px;
-				line-height: 23px;
+				line-height: 22px;
 				color: #fff;
 				background-color: $color1;
 				border-radius: 50%;
@@ -84,21 +119,37 @@ header {
 			}
 		}
 
-		@include _1170 {
+		&__sci {
+			display: none;
+		}
+
+		@include table {
+			@at-root header .container {
+				justify-content: space-between;
+			}
+
 			&__row {
-				position: absolute;
-				top: 100%;
-				left: 0;
 				flex-direction: column;
-				margin-left: 0;
-				width: 100%;
+				padding-bottom: 50px;
+				padding-top: 64.5px;
 				background-color: $color1;
+
+				&-wrap {
+					position: absolute;
+					top: 100%;
+					left: 0;
+					right: 0;
+					margin-left: 0;
+					display: block;
+				}	
 			}
 	
 			/*Переключение языка*/
-			&__languages-btn {
+			&__languages-btns {
+				margin-top: 34.5px;
+				margin-bottom: 80px;
 				margin-right: auto;
-				line-height: 42px;
+				line-height: 40px;
 				font-weight: bold;
 				color: #fff;
 	
@@ -107,22 +158,32 @@ header {
 					height: 42px;
 					border-radius: 50px;
 					text-align: center;
+					border: 2px solid;
+					border-color: transparent;
+					transition: border-color $duration;
 	
 					&.active {
 						color: #fff;
-						border: 2px solid #fff;
-					}
-	
-					&:nth-child(1) {
-						&::before {
-						}
+						border-color: #fff;
 					}
 				}
 			}
+
+			&__basket {
+				margin-left: auto;
+				margin-right: 25px;
+
+				@include mobile {
+					display: none;
+				}
+			}
+
+			&__sci {
+				display: block;
+				margin: 0 auto;
+			}
 		}
 	}
-
-	
 
 }
 
@@ -138,6 +199,28 @@ header {
 			font-family: $font-family;
 			line-height: 1.125;
 			color: $color3;
+			transition: color $duration;
+
+			&.active, &:hover {
+				color: $color1;
+			}
+		}
+	}
+
+	@include table {
+		flex-direction: column;
+		align-items: center;
+
+		&__item {
+			margin-right: 0;
+
+			a {
+				padding: 16.5px 0;
+				font-size: 18px;
+				font-weight: bold;
+				line-height: (20/18);
+				color: #fff;
+			}
 		}
 	}
 }
@@ -149,6 +232,10 @@ header {
 	width: 30px;
 	height: 15px;
 	overflow: hidden;
+
+	&.active::before, &.active::after {
+		width: 100%;
+	}
 	
 	span, &::before, &::after {
 		position: absolute;
@@ -156,6 +243,7 @@ header {
 		height: 3px;
 		background-color: $color1;
 		transform: skewX(-45deg) translateX(1.5px);
+		transition: width $duration;
 	}
 
 	span {
@@ -177,7 +265,7 @@ header {
 		width: 83.33%
 	}
 
-	@include _1170 {
+	@include table {
 		display: block;	
 	}
 }

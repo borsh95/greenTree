@@ -1,0 +1,189 @@
+footer {
+	margin-top: auto;
+	border: 1px solid #E0E0E0;
+
+	.container {
+		position: relative;
+		padding-top: 39px;
+		padding-bottom: 45px;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 732px;
+			width: 1px;
+			background-color: #E0E0E0;
+		}
+	}
+
+	@at-root .#{&} {
+
+		&__logo, &__sci {
+			position: absolute;
+			left: 0;
+		}
+
+		&__logo {
+			top: 39px;
+		}
+
+		&__sci {
+			top: 111px;
+		}
+
+		&__top {
+			display: flex;
+			padding-left: 299px;
+		}
+
+		&__sci {
+			& .sci__item svg {
+				path {
+					fill: $color1;
+					transition: fill $duration;
+				}
+
+				circle {
+					stroke: $color1;
+					transition: stroke $duration;
+				}
+			}
+
+			& .sci__item:hover {
+				path {
+					fill: $color4;
+				}
+
+				circle {
+					stroke: $color4;
+				}
+			}
+		}
+
+		&__col {
+			display: grid;
+			grid-template-columns: repeat(2, 170px);
+			grid-template-rows: repeat(2, max-content);
+			grid-auto-flow: column;
+			grid-gap: 25px 30px;
+
+			&:nth-of-type(2) {
+				margin-left: 130px;
+			}
+		}
+
+		&__link a {
+			font-size: 18px;
+			line-height: (26/18);
+			color: #1B1B1E;
+		}
+
+		&__bottom {
+			display: flex;
+			justify-content: space-between;
+			margin-top: 83px;
+			font-size: 18px;
+			font-weight: 300;
+			line-height: (20/18);
+			color: #828282;
+		}
+
+		@at-root .artBro a {
+			text-transform: uppercase;
+			color: $color1;
+		}
+	}
+
+	@include table {
+		.container::before {
+			display: none;
+		}
+
+		@at-root .#{&} {
+
+			&__top {
+				flex-wrap: wrap;
+				padding-left: 0;
+			}
+
+			&__logo, &__sci {
+				position: relative;
+				left: auto;
+				top: auto;			
+			}
+
+			&__logo {
+				margin-bottom: 50px;
+			}
+
+			&__sci {
+				flex: 1 0 100%;
+				margin-top: 45px;
+			}
+
+			&__col {
+				grid-template-columns: auto;
+				grid-template-rows: auto;
+				grid-auto-flow: row;
+			}
+		}
+	}
+
+	@include mobile {
+		border-top: none;
+
+		.container::before {
+			padding-top: 38px;
+			padding-bottom: 40px;
+		}
+
+		@at-root .#{&} {
+
+			&__logo {
+				margin-bottom: 43px;
+				width: 130px;
+			}
+
+			&__col:nth-of-type(2) {
+				margin-left: 30px;
+			}
+
+			&__link {
+				min-width: 120px;
+
+				a {
+					font-size: 14px;
+					line-height: (16/14);
+				}
+			}
+
+			&__sci {
+				margin-top: 40px;
+			}
+
+			&__bottom {
+				flex-direction: column;
+				position: relative;
+				margin-top: 45px;
+				padding-top: 23px;
+				font-size: 14px;
+				line-height: (16/14);
+				
+				&::before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: -23px;
+					right: -23px;
+					border: 1px solid #E0E0E0;
+				}
+
+				.artBro {
+					margin-top: 16px;
+				}
+			}
+		}
+	}
+}
