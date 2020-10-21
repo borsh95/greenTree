@@ -1,0 +1,156 @@
+/*--- title ---*/
+%title {
+	font-family: $font-family;
+	font-weight: 700;
+	color: $color3;
+}
+
+.title-1 {
+	@extend %title;
+	font-size: 55px;
+	line-height: (74/55);
+}
+
+.title-2 {
+	@extend %title;
+	font-size: 38px;
+	line-height: (44/38);
+}
+
+.title-3 {
+	@extend %title;
+	font-size: 24px;
+	line-height: (27/24);
+}
+
+.title-4 {
+	@extend %title;
+	font-size: 18px;
+	line-height: (26/18);
+}
+
+.text {
+	font-family: $font-family2;
+	font-size: 16px;
+	line-height: (30/16);
+	color: #333;
+}
+
+/*--- Btns ---*/
+%basis-btn {
+	cursor: pointer;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	transition: background-color $duration, color $duration;
+}
+
+%btn {
+	@extend %basis-btn;
+	width: 220px;
+	height: 60px;
+	font-family: $font-family;
+	font-weight: 700;
+	line-height: 60px;
+	color: #fff;
+	border-radius: 30px;
+	box-shadow: -6px 13px 20px rgba(136, 136, 136, 0.4);
+
+	span {
+		display: inline-block;
+	}
+}
+
+.btn {
+	@extend %btn;
+	background-color: $color1;
+
+	&:hover {
+		background-color: $color4;
+	}
+}
+
+.btn-v2 {
+	@extend %btn;
+	color: $color4;
+	background-color: #fff;
+	border: 2px solid #fff;
+
+	&:hover {
+		color: #fff;
+		background-color: transparent;
+	}
+}
+
+/*-------*/
+.btn-basket {
+	@extend %basis-btn;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: $color1;
+
+	&:hover {
+		background-color: $color4;
+	}
+
+	svg {
+		display: inline-block;
+	}
+}
+
+/*-------*/
+.btn-arrow {
+	@extend .btn-basket;
+	width: 40px;
+	height: 40px;
+}
+
+/*-------*/
+.btn-preview {
+	cursor: pointer;
+	position: relative;
+	display: inline-block;
+	align-self: flex-start;
+	padding-right: 31.5px;
+	line-height: (16/18);
+	color: $color1;
+	white-space: nowrap;
+	transition: color $duration;
+
+	&:hover {
+		color: $color4;
+
+		path {
+			fill: $color4;
+		}
+	}
+
+	svg {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		width: 20.88px;
+		height: 20.88px;
+		transform: translateY(-50%);
+
+		path {
+			fill: $color1;
+			transition: fill $duration;
+		}
+	}
+
+	&.white {
+		color: #fff;
+
+		svg path {
+			color: #fff;
+		}
+
+		
+	}
+}
+
+/*-------*/

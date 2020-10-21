@@ -50,3 +50,29 @@ languagesBtns.addEventListener('click', function (e) {
 	languagesBtns.querySelector('span.active').classList.remove('active');
 	target.classList.add('active');
 }, false);
+
+//main slider 
+if (document.querySelector('.main-slider')) {
+	new Swiper('.main-slider', {
+		loop: true,
+
+		pagination: {
+			el: '.main-slider .swiper-pagination',
+		},
+	});
+}
+
+if (document.querySelector('.product__slider')) {
+	new Swiper('.product__slider', {
+		loop: true,
+		slidesPerView: 3,
+		spaceBetween: 74,
+		centeredSlides: true,
+		slideToClickedSlide: true,
+		navigation: {
+			nextEl: '.product__slider-next',
+			prevEl: '.product__slider-prev',
+		},
+	});
+}
+
