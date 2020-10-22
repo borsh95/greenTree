@@ -420,21 +420,28 @@ img {
 }
 
 .article {
+	position: relative;
 	display: flex;
 	margin-top: 120px;
+	min-height: 500px;
 
 	&__col-picture {
-		position: relative;
-		margin-left: 100px;
-		margin-right: 100px;
-		
+		position: absolute;
+		top: 0;
+		left: 100px;
 		width: 500px;
 		height: 500px;
+
+		.article-reverse & {
+			left: auto;
+			right: 100px;
+		}
 	}
 
 	&__img {
+		width: 100%;
+		height: 100%;
 		object-fit: cover;
-		object-position: left top;
 	}
 
 	&__usp {
@@ -448,7 +455,13 @@ img {
 	}
 
 	&__col-info {
+		margin-left: auto;
 		width: 470px;
+
+		.article-reverse & {
+			margin-left: 0;
+			margin-right: auto;
+		}
 	}
 
 	&__title {
@@ -466,4 +479,201 @@ img {
 	&__btn {
 		margin-top: 51px;
 	}
+}
+
+.popular-products {
+	margin-top: 140px;
+
+	&__row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 25px;
+	}
+
+	&__title {
+		font-size: 38px;
+		line-height: (54/38);
+		font-weight: 700px;
+		color: #43475a;
+	}
+}
+
+.showcase {
+	display: flex;
+	margin-right: -30px;
+	margin-bottom: -10px;
+	padding-top: 30px;
+	padding-bottom: 10px;
+	
+	&__item {
+		position: relative;
+		z-index: 2;
+		margin-right: 30px;
+		padding-top: 21px;
+		padding-bottom: 39px;
+		width: calc(100% / 3 - 30px);
+		background-color: $color2;
+		box-shadow: 0 0 0 0 rgba(73, 73, 73, 0.01);
+		transition-property: transform, box-shadow;
+		transition-duration: $duration;
+
+		&:hover {
+			transform: translateY(-19px);
+			box-shadow: 0 35px 22px -15px rgba(73, 73, 73, 0.15);
+		}
+
+		&::before {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			width: 91%;
+			height: 411px;
+			overflow-x: hidden;
+			
+			transform: translateX(-50%);
+			z-index: -1;
+		}
+	}
+
+	&__img {
+		height: 290px;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			object-position: center;
+		}
+	}
+
+	&__col {
+		margin-top: 29px;
+		padding: 0 65px 0 31px;
+	}
+
+	&__category, &__price {
+		font-size: 14px;
+		line-height: (18/14);
+		font-weight: 700;
+		
+	}
+
+	&__category {
+		color: #828282;
+		transition: color $duration;
+
+		&:hover {
+			color: $color4;
+		}
+	}
+
+	&__title {
+		margin-top: 5px;
+	}
+
+	&__price {
+		margin-top: 9px;
+		color: #1B1B1E;
+	}
+
+	&__btn-basket {
+		position: absolute;
+		right: 30px;
+		bottom: 42px;
+	}
+}
+
+.subscrip {
+	position: relative;	
+	padding-top: 54px;
+	height: 354px;
+	background-color: $color1;
+	background-clip: content-box;
+	overflow: hidden;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 87px;
+		left: 31px;
+		width: 139px;
+		height: 223px;
+		opacity: 0.1;
+		background: url("../img/subscrip-fon.png") no-repeat;
+		background-size: contain;
+		pointer-events: none;
+	}
+
+	&__bg {
+		position: absolute;
+		right: 54px;
+		bottom: -467px;
+		width: 421px;
+
+		&-title {
+			position: absolute;
+			top: 85px;
+			left: 51px;
+			font-size: 38px;
+			line-height: (54/38);
+			color: #fff;
+		}
+
+		&-img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__form {
+		display: flex;
+		align-items: flex-end;
+
+		&-wrapp {
+			margin-top: 52px;
+			margin-left: 70px;
+			max-width: 537.5px;
+		}
+		
+	}
+
+	&__title {
+		margin-bottom: 36px;
+		font-weight: bold;
+		font-size: 38px;
+		line-height: (54/38);
+		color: #FFFFFF;
+	}
+
+	&__input {
+		display: block;
+		padding-left: 5px;
+		padding-bottom: 16px;
+		font-family: $font-family2;
+		font-size: 14px;
+		line-height: (13/14);
+		color: #fff;
+		background-color: transparent;
+		border-bottom: 2px solid #fff;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		&::placeholder {
+			color: #fff;
+		}
+
+		&:nth-of-type(1) {
+			margin-right: 17.7px;
+		}
+	}
+
+	&__btn {
+		margin-left: 22px;
+	}
+}
+
+.main-page__subscrip {
+	margin-top: 86px;
 }

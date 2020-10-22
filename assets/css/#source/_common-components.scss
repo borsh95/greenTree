@@ -97,7 +97,9 @@
 	}
 
 	svg {
-		display: inline-block;
+		display: inline-block;	
+		width: 20.83px;
+		height: 20.83px;
 	}
 }
 
@@ -106,6 +108,28 @@
 	@extend .btn-basket;
 	width: 40px;
 	height: 40px;
+}
+
+.btn-arrow-v2 {
+	@extend .btn-basket;
+	width: 44px;
+	height: 44px;
+	background-color: #fff;
+	border: 2px solid #fff;
+
+	svg path {
+		fill: $color4;
+		transition: fill $duration;
+	}
+	
+	&:hover {
+		background-color: transparent;
+
+		svg path {
+			fill: #fff;
+		}
+	}
+
 }
 
 /*-------*/
