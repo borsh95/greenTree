@@ -24,8 +24,10 @@ let bgMenu = document.querySelector('.bg-menu');
 hamburger.addEventListener('click', function () {
 	if (this.classList.contains('active')) {
 		bgMenu.classList.add('active');
+		document.body.classList.add('ovh');
 	} else {
 		bgMenu.classList.remove('active');
+		document.body.classList.remove('ovh');
 	}
 }, false);
 
@@ -36,6 +38,7 @@ window.addEventListener('resize', function () {
 		hamburger.classList.remove('active');
 		dropdownMenu.style.minHeight = "0px";
 		bgMenu.classList.remove('active');
+		document.body.classList.remove('ovh');
 	}
 }, false);
 
@@ -67,12 +70,53 @@ if (document.querySelector('.product__slider')) {
 		loop: true,
 		slidesPerView: 3,
 		spaceBetween: 74,
-		centeredSlides: true,
-		slideToClickedSlide: true,
+		breakpoints: {
+			320: {
+				loop: false,
+				slidesPerView: 2,
+				spaceBetween: 20
+			},
+			769: {
+				slidesPerView: 3,
+				spaceBetween: 30
+			},
+			1171: {
+				slidesPerView: 3,
+				spaceBetween: 74
+			}
+		},
 		navigation: {
 			nextEl: '.product__slider-next',
 			prevEl: '.product__slider-prev',
 		},
 	});
+}
+
+//popular slider
+if (document.querySelector('.showcase.swiper-container')) {
+	let showcaseSlider, isActive;
+
+	sliderShowcaseToggle();
+
+	function sliderShowcaseToggle() {
+
+		if (document.documentElement.clientWidth < 768 && !isActive) {
+			showcaseSlider = new Swiper('.showcase.swiper-container', {
+				width: 225,
+				slidesPerView: 1,
+				spaceBetween: 20,
+			});
+
+			isActive = true;
+		}
+
+		if (document.documentElement.clientWidth > 768 && isActive) {
+			showcaseSlider.destroy();
+			showcaseSlider = null;
+			isActive = false;
+		}
+	}
+
+	window.addEventListener('resize', sliderShowcaseToggle, false);
 }
 

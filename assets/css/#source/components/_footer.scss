@@ -134,9 +134,9 @@ footer {
 	@include mobile {
 		border-top: none;
 
-		.container::before {
-			padding-top: 38px;
-			padding-bottom: 40px;
+		.container {
+			padding-top: 0;
+			padding-bottom: 10px;
 		}
 
 		@at-root .#{&} {

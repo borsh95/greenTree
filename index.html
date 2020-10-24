@@ -124,12 +124,11 @@
 				</div>
 			</div>
 		</header>
-		<main class="container">
+		<main>
 			<!-- Main slider-->
 			<div class="main-slider swiper-container">
 				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<img class="main-slider__img" src="assets/img/index/main-slide_img.jpg">
+					<div class="swiper-slide" style="background-image: url(assets/img/index/main-slide_img.jpg);">
 						<h2 class="main-slider__title title-1">
 							Get your perfect <br>
 							Christmas tree now
@@ -138,8 +137,7 @@
 							<span>Go to catalog</span>
 						</div>
 					</div>
-					<div class="swiper-slide">
-						<img class="main-slider__img" src="assets/img/index/main-slide_img.jpg">
+					<div class="swiper-slide" style="background-image: url(assets/img/index/main-slide_img.jpg);">
 						<h2 class="main-slider__title title-1">
 							Get your perfect <br>
 							Christmas tree now
@@ -148,8 +146,7 @@
 							<span>Go to catalog</span>
 						</div>
 					</div>
-					<div class="swiper-slide">
-						<img class="main-slider__img" src="assets/img/index/main-slide_img.jpg">
+					<div class="swiper-slide" style="background-image: url(assets/img/index/main-slide_img.jpg);">
 						<h2 class="main-slider__title title-1">
 							Get your perfect <br>
 							Christmas tree now
@@ -158,8 +155,7 @@
 							<span>Go to catalog</span>
 						</div>
 					</div>
-					<div class="swiper-slide">
-						<img class="main-slider__img" src="assets/img/index/main-slide_img.jpg">
+					<div class="swiper-slide" style="background-image: url(assets/img/index/main-slide_img.jpg);">
 						<h2 class="main-slider__title title-1">
 							Get your perfect <br>
 							Christmas tree now
@@ -168,8 +164,7 @@
 							<span>Go to catalog</span>
 						</div>
 					</div>
-					<div class="swiper-slide">
-						<img class="main-slider__img" src="assets/img/index/main-slide_img.jpg">
+					<div class="swiper-slide" style="background-image: url(assets/img/index/main-slide_img.jpg);">
 						<h2 class="main-slider__title title-1">
 							Get your perfect <br>
 							Christmas tree now
@@ -183,10 +178,10 @@
 			</div>
 
 			<!-- product section-->
-			<section class="product">
+			<section class="product container">
 				<div class="product__col">
 					<div class="product__section-name section-name">
-						product
+						Featured
 					</div>
 					<div class="product__title title-2">
 						Special <br>
@@ -274,7 +269,7 @@
 			</section>
 
 			<!-- Categories-->
-			<section class="categories">
+			<section class="categories container">
 				<div class="categories__item">
 					<img class="categories__img" src="assets/img/index/cat-1.jpg">
 					<div class="categories__col">
@@ -329,7 +324,12 @@
 				</div>
 			</section>
 
-			<section class="article">
+			<!-- article -->
+			<section class="article container">
+				<a href="#" class="article__name section-name">
+					Featured
+				</a>
+				<div class="article__title">About us</div>
 				<div class="article__col-picture">
 					<img src="assets/img/index/article-1.jpg" class="article__img">
 					<div class="article__usp title-4">
@@ -338,24 +338,19 @@
 						in a growing natural products for your home
 					</div>
 				</div>
-				<div class="article__col-info">
-					<a href="#" class="article__name section-name">
-						Featured
-					</a>
-					<div class="article__title">About us</div>
-					<div class="article__text text">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-						labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-						laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-						voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-						non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-					</div>
-					<a href="#" class="btn article__btn">Go to catalog</a>
+				<div class="article__text text">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+					labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+					laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+					voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+					non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 				</div>
+				<a href="#" class="btn article__btn">Go to catalog</a>
+
 			</section>
 
 			<!-- popular-products -->
-			<section class="popular-products">
+			<section class="popular-products container">
 				<div class="popular-products__row">
 					<div class="popular-products__title">Most popolar</div>
 					<a class="popular-products__btn-preview btn-preview" href="#">
@@ -364,13 +359,12 @@
 							<path
 								d="M11.0586 2C10.2383 2 9.44922 2.10547 8.69141 2.31641C7.93359 2.52734 7.21875 2.82812 6.54688 3.21875C5.875 3.60938 5.27344 4.07422 4.74219 4.61328C4.21094 5.15234 3.74609 5.75781 3.34766 6.42969C2.94922 7.10156 2.64844 7.8125 2.44531 8.5625C2.24219 9.3125 2.13281 10.1055 2.11719 10.9414C2.11719 11.7617 2.22266 12.5508 2.43359 13.3086C2.64453 14.0664 2.94531 14.7812 3.33594 15.4531C3.72656 16.125 4.19141 16.7266 4.73047 17.2578C5.26953 17.7891 5.875 18.2539 6.54688 18.6523C7.21875 19.0508 7.92969 19.3516 8.67969 19.5547C9.42969 19.7578 10.2227 19.8672 11.0586 19.8828C11.8789 19.8828 12.668 19.7773 13.4258 19.5664C14.1836 19.3555 14.8984 19.0547 15.5703 18.6641C16.2422 18.2734 16.8438 17.8086 17.375 17.2695C17.9062 16.7305 18.3711 16.125 18.7695 15.4531C19.168 14.7812 19.4688 14.0703 19.6719 13.3203C19.875 12.5703 19.9844 11.7773 20 10.9414C20 10.1211 19.8945 9.33203 19.6836 8.57422C19.4727 7.81641 19.1719 7.10547 18.7812 6.44141C18.3906 5.77734 17.9219 5.17188 17.375 4.625C16.8281 4.07812 16.2266 3.61328 15.5703 3.23047C14.9141 2.84766 14.2031 2.54688 13.4375 2.32812C12.6719 2.10938 11.8789 2 11.0586 2ZM11.0586 0.5C12.0195 0.5 12.9414 0.625 13.8242 0.875C14.707 1.125 15.5391 1.47656 16.3203 1.92969C17.1016 2.38281 17.8047 2.92578 18.4297 3.55859C19.0547 4.19141 19.6016 4.89844 20.0703 5.67969C20.5391 6.46094 20.8906 7.28906 21.125 8.16406C21.3594 9.03906 21.4844 9.96484 21.5 10.9414C21.5 11.9023 21.375 12.8242 21.125 13.707C20.875 14.5898 20.5234 15.4219 20.0703 16.2031C19.6172 16.9844 19.0742 17.6875 18.4414 18.3125C17.8086 18.9375 17.1016 19.4844 16.3203 19.9531C15.5391 20.4219 14.7109 20.7734 13.8359 21.0078C12.9609 21.2422 12.0352 21.3672 11.0586 21.3828C10.0977 21.3828 9.17578 21.2578 8.29297 21.0078C7.41016 20.7578 6.57812 20.4062 5.79688 19.9531C5.01562 19.5 4.3125 18.957 3.6875 18.3242C3.0625 17.6914 2.51562 16.9844 2.04688 16.2031C1.57812 15.4219 1.22656 14.5938 0.992188 13.7188C0.757812 12.8438 0.632812 11.918 0.617188 10.9414C0.617188 9.98047 0.742187 9.05859 0.992188 8.17578C1.24219 7.29297 1.59375 6.46094 2.04688 5.67969C2.5 4.89844 3.04297 4.19531 3.67578 3.57031C4.30859 2.94531 5.01562 2.39844 5.79688 1.92969C6.57812 1.46094 7.40625 1.10938 8.28125 0.875C9.15625 0.640625 10.082 0.515625 11.0586 0.5ZM10.0273 16.4023L8.97266 15.3477L13.3086 11L8.97266 6.65234L10.0273 5.59766L15.4297 11L10.0273 16.4023Z" />
 						</svg>
-
 					</a>
 				</div>
 				<div class="showcase-wrapp">
 					<div class="showcase swiper-container">
 						<div class="swiper-wrapper">
-							<div class="swiper-slider showcase__item">
+							<div class="swiper-slide showcase__item">
 								<div class="showcase__img">
 									<img src="assets/img/index/popular-1.png">
 								</div>
@@ -395,7 +389,7 @@
 
 								</div>
 							</div>
-							<div class="swiper-slider showcase__item">
+							<div class="swiper-slide showcase__item">
 								<div class="showcase__img">
 									<img src="assets/img/index/popular-2.png">
 								</div>
@@ -417,10 +411,9 @@
 											d="M14.8965 17.7411C14.8965 18.7508 15.7179 19.5721 16.7275 19.5721C17.7373 19.5721 18.5586 18.7508 18.5586 17.7411C18.5586 16.7314 17.7373 15.91 16.7275 15.91C15.7179 15.91 14.8965 16.7314 14.8965 17.7411Z"
 											fill="white" />
 									</svg>
-
 								</div>
 							</div>
-							<div class="swiper-slider showcase__item">
+							<div class="swiper-slide showcase__item">
 								<div class="showcase__img">
 									<img src="assets/img/index/popular-3.png">
 								</div>
@@ -460,7 +453,6 @@
 						<img src="assets/img/subscrip-table-bg.png" class="subscrip__bg-img">
 					</picture>
 				</div>
-
 				<div class="subscrip__form-wrapp">
 					<div class="subscrip__title">Sign to our news mailing
 						and get 15% discount</div>
@@ -476,10 +468,61 @@
 							</svg>
 						</button>
 					</div>
-
 				</div>
-
 			</section>
+
+			<!-- article -->
+			<section class="article article-reverse container">
+				<a href="#" class="article__name section-name">
+					Featured
+				</a>
+				<div class="article__title">Growing our own</div>
+				<div class="article__col-picture">
+					<img src="assets/img/index/article-2.jpg" class="article__img">
+					<div class="article__usp title-4">
+						More than 6 years
+						of expirience
+						in a growing natural products for your home
+					</div>
+				</div>
+				<div class="article__text text">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+					labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+					laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+					voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+					non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+				</div>
+				<a href="#" class="btn article__btn">Learn more</a>
+			</section>
+
+			<!-- observation -->
+			<div class="observation index-page__observation container">
+				<a href="#" class="section-name .observation__section-name">Our Instagram</a>
+				<div class="observation__row">
+					<div class="observation__title title-2">Our Instagram</div>
+					<a href="#" class="observation__btn-preview btn-preview">
+						Visit instagram
+						<svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M11.0586 2C10.2383 2 9.44922 2.10547 8.69141 2.31641C7.93359 2.52734 7.21875 2.82812 6.54688 3.21875C5.875 3.60938 5.27344 4.07422 4.74219 4.61328C4.21094 5.15234 3.74609 5.75781 3.34766 6.42969C2.94922 7.10156 2.64844 7.8125 2.44531 8.5625C2.24219 9.3125 2.13281 10.1055 2.11719 10.9414C2.11719 11.7617 2.22266 12.5508 2.43359 13.3086C2.64453 14.0664 2.94531 14.7812 3.33594 15.4531C3.72656 16.125 4.19141 16.7266 4.73047 17.2578C5.26953 17.7891 5.875 18.2539 6.54688 18.6523C7.21875 19.0508 7.92969 19.3516 8.67969 19.5547C9.42969 19.7578 10.2227 19.8672 11.0586 19.8828C11.8789 19.8828 12.668 19.7773 13.4258 19.5664C14.1836 19.3555 14.8984 19.0547 15.5703 18.6641C16.2422 18.2734 16.8438 17.8086 17.375 17.2695C17.9062 16.7305 18.3711 16.125 18.7695 15.4531C19.168 14.7812 19.4688 14.0703 19.6719 13.3203C19.875 12.5703 19.9844 11.7773 20 10.9414C20 10.1211 19.8945 9.33203 19.6836 8.57422C19.4727 7.81641 19.1719 7.10547 18.7812 6.44141C18.3906 5.77734 17.9219 5.17188 17.375 4.625C16.8281 4.07812 16.2266 3.61328 15.5703 3.23047C14.9141 2.84766 14.2031 2.54688 13.4375 2.32812C12.6719 2.10938 11.8789 2 11.0586 2ZM11.0586 0.5C12.0195 0.5 12.9414 0.625 13.8242 0.875C14.707 1.125 15.5391 1.47656 16.3203 1.92969C17.1016 2.38281 17.8047 2.92578 18.4297 3.55859C19.0547 4.19141 19.6016 4.89844 20.0703 5.67969C20.5391 6.46094 20.8906 7.28906 21.125 8.16406C21.3594 9.03906 21.4844 9.96484 21.5 10.9414C21.5 11.9023 21.375 12.8242 21.125 13.707C20.875 14.5898 20.5234 15.4219 20.0703 16.2031C19.6172 16.9844 19.0742 17.6875 18.4414 18.3125C17.8086 18.9375 17.1016 19.4844 16.3203 19.9531C15.5391 20.4219 14.7109 20.7734 13.8359 21.0078C12.9609 21.2422 12.0352 21.3672 11.0586 21.3828C10.0977 21.3828 9.17578 21.2578 8.29297 21.0078C7.41016 20.7578 6.57812 20.4062 5.79688 19.9531C5.01562 19.5 4.3125 18.957 3.6875 18.3242C3.0625 17.6914 2.51562 16.9844 2.04688 16.2031C1.57812 15.4219 1.22656 14.5938 0.992188 13.7188C0.757812 12.8438 0.632812 11.918 0.617188 10.9414C0.617188 9.98047 0.742187 9.05859 0.992188 8.17578C1.24219 7.29297 1.59375 6.46094 2.04688 5.67969C2.5 4.89844 3.04297 4.19531 3.67578 3.57031C4.30859 2.94531 5.01562 2.39844 5.79688 1.92969C6.57812 1.46094 7.40625 1.10938 8.28125 0.875C9.15625 0.640625 10.082 0.515625 11.0586 0.5ZM10.0273 16.4023L8.97266 15.3477L13.3086 11L8.97266 6.65234L10.0273 5.59766L15.4297 11L10.0273 16.4023Z" />
+						</svg>
+					</a>
+				</div>
+				<div class="observation__list">
+					<div class="observation__item">
+						<img src="assets/img/index/observation-1.jpg">
+					</div>
+					<div class="observation__item">
+						<img src="assets/img/index/observation-2.jpg">
+					</div>
+					<div class="observation__item">
+						<img src="assets/img/index/observation-3.jpg">
+					</div>
+					<div class="observation__item">
+						<img src="assets/img/index/observation-4.jpg">
+					</div>
+				</div>
+			</div>
 		</main>
 
 		<footer>

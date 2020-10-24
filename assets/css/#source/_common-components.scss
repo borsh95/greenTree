@@ -9,31 +9,67 @@
 	@extend %title;
 	font-size: 55px;
 	line-height: (74/55);
+
+	@include table {
+		font-size: 45px;
+	}
+
+	@include mobile {
+		font-size: 36px;
+		line-height: (48/36);
+	}
 }
 
 .title-2 {
 	@extend %title;
 	font-size: 38px;
 	line-height: (44/38);
+
+	@include table {
+		font-size: 32px;
+	}
+
+	@include mobile {
+		font-size: 22px;
+		line-height: (30/22);
+	}
 }
 
 .title-3 {
 	@extend %title;
 	font-size: 24px;
 	line-height: (27/24);
+
+	@include mobile {
+		font-size: 20px;
+		line-height: (25/20);
+	}
 }
 
 .title-4 {
 	@extend %title;
 	font-size: 18px;
 	line-height: (26/18);
+
+	@include mobile {
+		font-size: 16px;
+		line-height: (22/16);
+	}
 }
+
+
 
 .text {
 	font-family: $font-family2;
 	font-size: 16px;
 	line-height: (30/16);
 	color: #333;
+
+	@include mobile {
+		font-size: 14px;
+		font-weight: 300;
+		line-height: (28/14);
+	}
 }
 
 /*--- Btns ---*/
@@ -60,6 +96,10 @@
 
 	span {
 		display: inline-block;
+	}
+
+	@include mobile {
+		font-size: 14px;
 	}
 }
 
@@ -101,13 +141,42 @@
 		width: 20.83px;
 		height: 20.83px;
 	}
+
+	@include table {
+		width: 40px;
+		height: 40px;
+
+		svg {
+			width: 16.67px;
+			height: 16.67px;
+		}
+	}
 }
+
+/*-------*/
+.btn-cupons {
+	@extend .btn-basket;
+}
+
 
 /*-------*/
 .btn-arrow {
 	@extend .btn-basket;
 	width: 40px;
 	height: 40px;
+
+	svg {
+		width: 20px;
+	}
+
+	@include mobile {
+		width: 30px;
+		height: 30px;
+
+		svg {
+			width: 15px;
+		}
+	}
 }
 
 .btn-arrow-v2 {
@@ -172,9 +241,145 @@
 		svg path {
 			color: #fff;
 		}
+	}
 
-		
+	@include mobile {
+		font-size: 14px;
+		line-height: (18/14);
+	}
+}
+/*-------*/
+
+/*b-checkbox*/
+.b-checkbox {
+	cursor: pointer;
+    position: relative;
+	display: block;
+	margin-bottom: 13px;
+	font-family: $font-family2;
+	font-weight: 500;
+    color: #828282;
+
+	input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 0;
+		opacity: 0;
+		z-index: -1;
+
+		&:checked ~ .b-checkbox__text {
+			color: $color1;
+		}
+
+		&:checked ~ .b-checkbox__text::before {
+			background-color: $color1;
+			border-color: $color1;
+		}
+
+		&:checked ~ .b-checkbox__text::after {
+			opacity: 1;
+		}
+	}
+
+	&__text {
+		position: relative;
+		padding-left: 34px;
+		font-size: 16px;
+		line-height: (22/16);
+		transition: color $duration;
+
+		&::before, &::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			transition-duration: $duration;
+		}
+
+		&::before {
+			left: 0;
+			width: 18px;
+			height: 18px;
+			border: 1px solid;
+			border-color:  #828282;
+			border-radius: 50%;
+			background-color: transparent;
+			transition-property: border-color, background-color;
+		}
+
+		&::after {
+			left: 3.5px;
+			width: 11.1px;
+			height: 7.93px;
+			background-image: url("../img/icon/check.svg");
+			background-position: center;
+			background-size: contain;
+			background-repeat: no-repeat;
+			opacity: 0;
+			transition-property: opacity;
+		}
 	}
 }
 
-/*-------*/
+/*gallery*/
+.gallery {
+	display: flex;
+	justify-content: space-between;
+	width: 670px;
+	height: 470px;
+
+	&__thumb {
+		width: 170px;
+
+		&-item {
+			height: 170px;
+			margin-bottom: 30px;
+
+			&:last-child {
+				margin-bottom: 0
+			}
+		}
+	}
+
+	&__full {
+		width: 470px;
+		background-color: #f2f2f2;
+	}
+}
+
+/*choice*/
+.choice {
+
+	&__title {
+		margin-top: 13px;
+		margin-bottom: 13px;
+	}
+
+	&__block {
+		&-title {
+			font-weight: bold;
+			font-size: 18px;
+			line-height: 44px;
+			color: #828282;
+
+			&-wrapp {
+				display: flex;
+
+				svg {
+					width: 23.34px;
+					height: 23.34px;
+					fill: #828282;
+					transition: fill $duration;
+				}
+			}
+		}
+
+		&-line {
+			flex-grow: 1;
+			height: 1px;
+			background-color: #E0E0E0;
+		}
+	}
+}

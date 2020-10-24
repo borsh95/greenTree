@@ -48,6 +48,10 @@ img {
 
 @import "components/footer";
 
+.ovh {
+	overflow: hidden;
+}
+
 .page {
 	position: relative;
 	display: flex;
@@ -85,6 +89,7 @@ img {
 }
 
 .logo {
+	cursor: pointer;
 	display: block;
 	width: 146px;
 }
@@ -165,10 +170,58 @@ img {
 }
 
 //index-page
+.main-page main {
+	padding-top: 18px;
+	padding-bottom: 70px;
+
+	@include table {
+		padding-top: 0;
+	}
+
+	.categories {
+		margin-top: 110px;
+
+		@include table{
+			margin-top: 75px;
+		}
+
+		@include mobile {
+			margin-top: 60px;
+		}
+	}
+
+	.article {
+			margin-top: 120px;
+
+		&:nth-last-of-type(1) {
+			margin-top: 130px;
+		}
+
+		@include table{
+				margin-top: 80px;
+	
+			&:nth-last-of-type(1) {
+				margin-top: 70px;
+			}
+		}
+
+		@include mobile {
+				margin-top: 50px;
+
+			&:nth-last-of-type(1) {
+				margin-top: 60px;
+			}
+	
+			
+		}
+	}
+}
 
 .main-slider {
-	margin-top: 18px;
+	margin-left: auto;
+	margin-right: auto;
 	width: 100%;
+	max-width: 1170px;
 	height: 577px;
 
 	 & > .swiper-pagination {
@@ -217,6 +270,24 @@ img {
 			}
 		}
 
+		@include mobile {
+			left: 20px;
+			bottom: 70px;
+
+			.swiper-pagination-bullet {
+				width: 8.16px;
+				height: 8.16px;
+				margin: 0;
+				margin-right: 16.32px;
+	
+				&::before {
+					width: 13.06px;
+					height: 13.06px;
+					font-size: 9.34px;
+					border: 3.2px solid #000;
+				}
+			}
+		}
 	}
 
 	.swiper-slide {
@@ -224,6 +295,8 @@ img {
 		padding-top: 147px;
 		padding-left: 70px;
 		background-color: $color1;
+		background-repeat: no-repeat;
+		background-position: center;
 
 		&::before, &::after {
 			content: "";
@@ -248,14 +321,32 @@ img {
 		& > *:not(.main-slider__img) {
 			z-index: 2;
 		}
-	}
 
-	&__img {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
+		@include table {
+			&::before {
+				display: none;
+			}
+
+			&::after {
+				left: 0;
+				width: 100%;
+			}
+		}
+
+		@include mobile {
+			padding-top: 90px;
+			padding-left: 20px;
+
+			&:after {
+				width: 100%;
+				right: 0;
+				left: auto;
+				width: 1170px;
+				background: linear-gradient(94.7deg, $color1 15.1%, rgba(255, 255, 255, 0) 77.52%);
+				background-repeat: no-repeat;
+				background-attachment: fixed
+			}
+		}
 	}
 
 	&__title {
@@ -266,6 +357,21 @@ img {
 	&__btn {
 		margin-top: 40px;
 	}
+
+	@include table {
+
+		&__title {
+			max-width: 90%;
+		}
+	}
+
+	@include mobile {
+		height: 522px;
+
+		&__btn {
+			width: 186px;
+		}
+	}
 }
 
 .section-name {
@@ -274,6 +380,11 @@ img {
 	font-weight: 700;
 	line-height: (20/18);
 	color: #828282;
+
+	@include mobile {
+		font-size: 14px;
+		line-height: (18/14);
+	}
 }
 
 .product {
@@ -380,14 +491,136 @@ img {
 	&__slider-next {
 		right: 0;
 	}
+
+	@include table {
+		flex-direction: column;
+		height: auto;
+
+		&__title {
+			margin-bottom: 15px;
+
+			br {
+				display: none;
+			}
+		}
+
+		&__btn-preview {
+			position: relative;
+			left: auto;
+			bottom: auto;
+			margin-top: 35px;
+		}
+
+		&__slider {
+			padding: 0 20px 30px;
+			width: 100%;
+		}
+
+		&__item {
+			&.swiper-slide::before {
+				left: 0;
+				right: 0;
+				visibility: visible;
+				opacity: 1;
+			}
+
+			&-img {
+				width: 100%;
+				
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: contain;
+					object-position: center;
+				}
+			}
+		}
+
+		&__info {
+			top: calc(100% + 12px);
+			bottom: auto;
+			padding: 0 1px;
+			width: 100%;
+			height: auto;
+			background-color: transparent;
+			border-radius: 0;
+			box-shadow: none;
+			opacity: 1;
+			pointer-events: all;
+		}
+
+		&__product {
+			max-width: 130px;
+		}
+
+		&__price {
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+
+	@include mobile {
+		&__title {
+			margin-top: 2px;
+			margin-bottom: 12px;
+
+			br:nth-of-type(1){
+				display: block;
+			}
+		}
+
+		&__btn-preview {
+			margin-top: 34px;
+		}
+
+		&__slider {
+			padding: 0 15px 23px;
+			width: calc(100% + 30px);
+			margin-left: -15px;
+			
+			&-next, &-prev {
+				top: calc(50% - 11.5px);
+			}
+		}
+
+		&__item {
+			height: 112px;
+
+			&-img {
+				height: calc(100% - 20px);
+			}
+		}
+
+		&__info {
+			top: calc(100% + 8px);
+			font-size: 12px;
+			line-height-step: (15/12);
+		}
+
+		&__product {
+			max-width: 130px;
+		}
+
+		&__price {
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.swiper-button-disabled {
+			display: none;
+		}
+	}
 }
 
 .categories {
-	margin-top: 110px;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 	grid-auto-rows: 250px;
 	grid-gap: 30px 30px;
+	
+	&__heading {
+		margin-bottom: 29px;
+	}
 
 	&__item {
 		position: relative;
@@ -395,6 +628,8 @@ img {
 	}
 
 	&__img {
+		width: 100%;
+		height: 100%;
 		object-fit: cover;
 		object-position: center;
 		transition: transform $duration;
@@ -417,19 +652,51 @@ img {
 		line-height: (27/24);
 		color: #fff;
 	}
+
+	@include table {
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		grid-auto-rows: auto;
+		grid-gap: 20px 20px;
+
+		&__col {
+			left: 20px;
+			bottom: 20px;
+		}
+	}
+
+	@include mobile {
+		grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+		grid-auto-rows: 185px;
+
+		&__title {
+			margin-bottom: 10px;
+			font-size: 20px;
+			line-height: (25/20);
+		}
+
+		&__col {
+			left: 20px;
+			bottom: 25px;
+		}
+	}
 }
 
 .article {
 	position: relative;
-	display: flex;
-	margin-top: 120px;
+	padding-left: 700px;
 	min-height: 500px;
+
+	&-reverse {
+		padding-left: 0;
+		padding-right: 700px;
+	}
 
 	&__col-picture {
 		position: absolute;
 		top: 0;
 		left: 100px;
-		width: 500px;
+		max-width: 500px;
+		width: 100%;
 		height: 500px;
 
 		.article-reverse & {
@@ -452,15 +719,10 @@ img {
 		width: 240px;
 		background-color: $color1;
 		color: #fff;
-	}
-
-	&__col-info {
-		margin-left: auto;
-		width: 470px;
 
 		.article-reverse & {
-			margin-left: 0;
-			margin-right: auto;
+			left: auto;
+			right: -100px;
 		}
 	}
 
@@ -478,6 +740,76 @@ img {
 	
 	&__btn {
 		margin-top: 51px;
+	}
+
+	@include table {
+		padding-left: 20px;
+
+		&-reverse {
+			padding-right: 20px;
+		}
+
+		&__col-picture {
+			position: relative;
+			top: auto;
+			left: auto;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 30px;
+
+			.article-reverse & {
+				right: auto;
+			}
+		}
+
+		&__usp {
+			.article-reverse & {
+				right: 0;
+			}
+		}
+
+		&__title { 
+			font-size: 32px;
+		}
+
+		&__btn {
+			margin-top: 41px;
+		}
+	}
+
+	@include mobile {
+		padding-left: 20px;
+
+		&__col-picture {
+			margin-top: 15px;
+			height: auto;
+
+		}
+
+		&__usp {
+			left: auto;
+			bottom: 0;
+			right: 0;
+			width: 205px;
+			padding: 26px 23px 23px 21px;
+			font-size: 12px;
+			line-height: (22/12);
+		}
+
+		&__title { 
+			margin-top: 2px;
+			font-size: 22px;
+			line-height: (30/22);
+		}
+		
+		&__text {
+			margin-top: 30px;
+		}
+
+		&__btn {
+			margin-top: 40px;
+			width: 186px;
+		}
 	}
 }
 
@@ -497,6 +829,35 @@ img {
 		font-weight: 700px;
 		color: #43475a;
 	}
+
+	@include table {
+		margin-top: 90px;
+
+		&__row {
+			margin-bottom: 15px;
+		}
+
+		&__title {
+			font-size: 32px;
+		}
+	}
+
+	@include mobile {
+		margin-top: 71px;
+
+		&__row {
+			margin-bottom: 11px;
+		}
+
+		&__title {
+			font-size: 22px;
+			line-height: (30/22);
+		}
+
+		&__btn-preview {
+			display: none;
+		}
+	}
 }
 
 .showcase {
@@ -511,7 +872,7 @@ img {
 		z-index: 2;
 		margin-right: 30px;
 		padding-top: 21px;
-		padding-bottom: 39px;
+		padding-bottom: 64px;
 		width: calc(100% / 3 - 30px);
 		background-color: $color2;
 		box-shadow: 0 0 0 0 rgba(73, 73, 73, 0.01);
@@ -550,7 +911,7 @@ img {
 
 	&__col {
 		margin-top: 29px;
-		padding: 0 65px 0 31px;
+		padding: 0 95px 0 31px;
 	}
 
 	&__category, &__price {
@@ -574,7 +935,9 @@ img {
 	}
 
 	&__price {
-		margin-top: 9px;
+		position: absolute;
+		bottom: 39px;
+		left: 31px;
 		color: #1B1B1E;
 	}
 
@@ -583,11 +946,73 @@ img {
 		right: 30px;
 		bottom: 42px;
 	}
+
+	@include table {
+		margin-right: -20px;
+
+		&__item {
+			margin-right: 20px;
+			padding-top: 15px;
+			padding-bottom: 61px;
+			width: calc(100% / 3 - 20px);
+		}
+	
+		&__img {
+			height: 185px;
+		}
+	
+		&__col {
+			margin-top: 25px;
+			padding: 0 65px 0 31px;
+		}
+	
+		&__btn-basket {
+			right: 20px;
+    		bottom: 30px;
+		}
+	}
+
+	@include mobile {
+		padding-top: 19px;
+		margin-right: 0;
+		width: calc(100% + 20px);
+
+		&__item {
+			min-width: 225px;
+			padding-top: 16px;
+			padding-bottom: 48px;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	
+		&__img {
+			height: 143px;
+		}
+	
+		&__col {
+			margin-top: 33px;
+			padding: 0 65px 0 31px;
+		}
+
+		&__price {
+			bottom: 23px;
+		}
+	
+		&__btn-basket {
+    		bottom: 26px;
+		}
+	}
 }
 
 .subscrip {
 	position: relative;	
+	margin-right: auto;
+	margin-left: auto;
 	padding-top: 54px;
+	width: 100%;
+	max-width: 1170px;
 	height: 354px;
 	background-color: $color1;
 	background-clip: content-box;
@@ -614,8 +1039,8 @@ img {
 
 		&-title {
 			position: absolute;
-			top: 85px;
-			left: 51px;
+			top: 10.36%;
+    		left: 12.11%;
 			font-size: 38px;
 			line-height: (54/38);
 			color: #fff;
@@ -672,8 +1097,419 @@ img {
 	&__btn {
 		margin-left: 22px;
 	}
+
+	@include table {
+
+		&::before {
+			left: 5px;
+			top: 84px;
+		}
+
+
+		&__bg {
+			right: -95px;
+			bottom: -385px;
+			width: 380px;
+
+			&-title {
+				font-size: 32px;
+			}
+		}
+
+		&__form {
+			display: flex;
+			flex-wrap: wrap;
+
+			&-wrapp {
+				margin-top: 0;
+				margin-left: 0;
+				padding-top: 52px;
+				padding-left: 50px;
+				margin-right: 295px;
+			}
+		}
+
+		&__title {
+			margin-bottom: 28px;
+			font-weight: bold;
+			font-size: 32px;
+		}
+
+		&__input {
+			width: calc(50% - 9px);
+		}
+
+		&__btn {
+			margin-top: 20px;
+			margin-left: 0;
+		}
+	}
+
+	@include mobile {
+		padding-top: 0;
+		padding-bottom: 246px;
+		height: auto;
+		background-clip: border-box;
+
+		&::before {
+			display: none;
+		}
+
+
+		&__bg {
+			right: -57px;
+			bottom: -325px;
+			width: 287px;
+
+			&-title {
+				font-size: 24px;
+				line-height: (34/24);
+			}
+		}
+
+		&__form {
+			flex-wrap: nowrap;
+			flex-direction: column;
+			align-items: flex-start;
+			
+
+			&-wrapp {
+				padding-top: 40px;
+				padding-left: 20px;
+				padding-right: 20px;
+				margin-right: 0;
+				max-width: none;
+			}
+		}
+
+		&__title {
+			margin-bottom: 31px;
+			font-size: 22px;
+			line-height: (30/22);
+		}
+
+		&__input {
+			width: 82.14%;
+
+			&:nth-of-type(1) {
+				margin-bottom: 20px;
+			}
+		}
+
+		&__btn {
+			margin-top: 30px;
+		}
+	}
+	
 }
 
 .main-page__subscrip {
 	margin-top: 86px;
 }
+
+.observation {
+	&__row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 8px;
+		margin-bottom: 29px;
+	}
+
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, 270px);
+		grid-gap: 30px 30px;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	@include table {
+		&__list {
+			grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+			grid-gap: 20px 20px;
+		}
+	}
+
+	@include mobile {
+		&__list {
+			grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+		}
+
+		&__btn-preview {
+			display: none;		
+		}
+	}
+}
+
+.index-page__observation {
+	margin-top: 130px;
+
+	@include table {
+		margin-top: 90px;
+	}
+
+	@include mobile {
+		margin-top: 70px;
+	}
+}
+
+//bread-crumb
+.bread-crumb {
+	display: flex;
+	margin-top: 40px;
+	margin-bottom: 30px;
+	font-size: 14px;
+	line-height: (26/14);
+	color: #828282;
+
+	&__item {
+		position: relative;
+		margin-right: 34px;
+		transition: color $duration;
+
+		@at-root a#{&}:hover {
+			color: $color1;
+		}
+
+		@at-root div#{&} {
+			color: $color1;
+		}
+
+		&::before {
+			content: ".";
+			position: absolute;
+			right: -17px;
+			top: -12px;
+			font-size: 21px;
+			color: $color1;
+		}
+
+		&:last-child {
+			margin-right: 0;
+
+			&::before {
+				display: none;
+			}
+		}
+	}
+
+	@include table {
+		display: none;
+		
+		& + main {
+			padding-top: 30px;
+			padding-bottom: 95px;
+		}
+	}
+
+	@include mobile {
+		& + main {
+			padding-bottom: 40px;
+		}
+	}
+}
+
+.cupons {
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: -30px;
+	padding-bottom: -30px;
+
+	&__title {
+		flex: 1 0 100%;
+		margin-bottom: 29px;
+	}
+	
+	&__item {	
+		position: relative;	
+		margin-right: 30px;
+		margin-bottom: 30px;
+		width: calc(100% / 3 - 30px);
+		height: 451px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+
+		& > * {
+			position: absolute;
+		}
+
+		&-title, &-price {
+			left: 31px;
+			max-width: 239px;
+			color: #fff;
+		}
+		&-title {
+			bottom: 68px;
+		}
+
+		&-price {
+			bottom: 38px;
+			font-weight: bold;
+			font-size: 14px;
+			line-height: (18/14);
+		}
+
+		&-btn {
+			right: 30px;
+			bottom: 42px;
+		}
+	}
+
+	@include table {
+		margin-right: -20px;
+		margin-bottom: -20px;
+
+		&__item {
+			margin-right: 20px;
+			margin-bottom: 20px;
+			width: calc(50% - 20px);
+			height: 360px;
+		}
+	}
+
+	@include mobile {
+		&__item {
+			flex: 1 0 280px;
+			height: 185px;
+
+			&-title, &-price {
+				left: 20px;
+				max-width: 180px;
+			}
+			&-title {
+				bottom: 59px;
+			}
+	
+			&-price {
+				bottom: 27px;
+			}
+	
+			&-btn {
+				right: 25px;
+				bottom: 27px;
+			}
+		}
+	}
+}
+
+.cupons-page {
+	main {
+		padding-bottom: 130px;
+	}
+
+	&__subscrip {
+		margin-top: 141px;
+	}
+
+	@include table {
+		main {
+			padding-bottom: 130px;
+		}
+	
+		&__subscrip {
+			margin-top: 141px;
+		}
+	}
+}
+
+.infoText {
+	&__title {
+		margin-bottom: 23px;
+	}
+
+	&__text {
+		color: #333;
+	}
+
+	@include table {
+		&__title {
+			margin-bottom: 7px;
+		}
+	}
+}
+
+.catalog {
+
+	&__infoText {
+		margin-top: 57px;
+		margin-bottom: 40px;
+	}
+
+	@include table {
+		&__infoText {
+			margin-top: 60px;
+			margin-bottom: 60px;
+		}
+	}
+}
+
+.catalog-page__tree {
+	.infoText {
+		margin-top: 67px;
+		margin-bottom: 40px;
+	}
+
+	@include table {
+
+		.infoText {
+			margin-top: 55px;
+   			margin-bottom: 60px;
+		}
+	}
+
+	@include mobile {
+
+		.infoText {
+			margin-top: 50px;
+   			margin-bottom: 80px;
+		}
+	}
+}
+
+.catalog-page__pack {
+	.infoText {
+		margin-top: 60px;
+		margin-bottom: 55px;
+	}
+
+	@include table {
+		.infoText {
+			margin-top: 50px;
+   			margin-bottom: 40px;
+		}
+	}
+
+	@include mobile {
+		.infoText {
+   			margin-bottom: 87px;
+		}
+	}
+}
+
+.catalog-page main,
+.catalog-page__tree main, 
+.catalog-page__pack main {
+	padding-bottom: 130px;
+
+	@include table {
+		padding-bottom: 70px;
+	}
+}
+
+//order 
+.order {
+	display: flex;
+	justify-content: space-between;
+
+	&__choice {
+		width: 470px;
+	}
+}
+
+
