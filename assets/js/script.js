@@ -1,19 +1,60 @@
-//dropdown 
-let dropdownBtn = document.querySelector('.dropdownBtn');
-let dropdownWrap = document.querySelector('.dropdownEl');
-let dropdownList = dropdownWrap.children[0];
+// Scroll header
+let scrollHeader = (function () {
 
-dropdownBtn.addEventListener("click", function () {
-	this.classList.toggle("active");
+	let scrollWindow = window.pageYOffset || document.documentElement.scrollTop;
+	let scrolled;
+	let scrollEl = document.querySelector("header");
 
-	if (this.classList.contains('active')) {
-		dropdownWrap.style.cssText = `min-height: ${dropdownList.offsetHeight}px`;
-	} else {
-		dropdownWrap.classList.remove('active');
-		dropdownWrap.style.cssText = `min-height: 0;
-		`;
+	function headerScroll() {
+		scrolled = scrollWindow;
+		scrollWindow = window.pageYOffset || document.documentElement.scrollTop;
+
+		if (scrollWindow > scrollEl.offsetHeight) {
+			scrollEl.classList.add("fixed");
+
+			if (scrolled > scrollWindow) {
+				scrollEl.classList.add("visible");
+			} else {
+				scrollEl.classList.remove("visible");
+			}
+		} else if (scrollWindow <= 0) {
+			scrollEl.classList.remove("fixed");
+			scrollEl.classList.remove("visible");
+		}
 	}
-});
+
+	window.addEventListener('scroll', function () {
+		headerScroll();
+	});
+
+	return headerScroll();
+}());
+
+//dropdown 
+function dropdown(parentEL, propertyChange = 'height', collapse = false) {
+	let dropdownBtn = parentEL.querySelector('.dropdownBtn');
+	let dropdownWrap = parentEL.querySelector('.dropdownEl');
+
+	dropdownBtn.addEventListener("click", function () {
+		this.classList.toggle("active");
+
+		if (this.classList.contains('active')) {
+			dropdownWrap.classList.add('active');
+			dropdownWrap.style.cssText = `${propertyChange}: ${dropdownWrap.scrollHeight}px`;
+		} else {
+			dropdownWrap.style.cssText = `${propertyChange}: 0;`;
+			dropdownWrap.classList.remove('active');
+		}
+	});
+}
+
+dropdown(document.querySelector('header'), 'height');
+
+if (document.querySelector('.description-item')) {
+	for (let elem of document.querySelectorAll('.description-item')) {
+		dropdown(elem);
+	}
+}
 
 //////
 let hamburger = document.querySelector('.hamburger');
@@ -36,7 +77,7 @@ window.addEventListener('resize', function () {
 
 	if (hamburger.classList.contains('active') && windowWidth > 1170) {
 		hamburger.classList.remove('active');
-		dropdownMenu.style.minHeight = "0px";
+		dropdownMenu.style.height = "0px";
 		bgMenu.classList.remove('active');
 		document.body.classList.remove('ovh');
 	}

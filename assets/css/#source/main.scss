@@ -1507,8 +1507,46 @@ img {
 	display: flex;
 	justify-content: space-between;
 
+	&-wrapp {
+		margin-bottom: 70px;
+	}
+
 	&__choice {
 		width: 470px;
+
+		&-block {
+			margin-bottom: 28px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	@include table {
+		flex-direction: column;
+		align-items: center;
+
+		&-wrapp {
+			margin-bottom: 50;
+		}
+
+		&__choice {
+			margin-top: 25px;
+			width: 100%;
+		}
+	}
+
+	@include mobile  {
+
+		&-wrapp {
+			margin-bottom: 41;
+		}
+
+		&__choice {
+			margin-top: 25px;
+			width: 100%;
+		}
 	}
 }
 

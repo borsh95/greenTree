@@ -3,7 +3,7 @@
 		height: 0;
 		min-height: 0;
 		overflow: hidden;
-		transition-property: min-height;
-		transition-duration: 0.6s;
+		transition-property: min-height, height;
+		transition-duration: $duration;
 	}
 }
