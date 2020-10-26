@@ -444,6 +444,7 @@ img {
 
 .b-radio__text {
   position: relative;
+  display: inline-block;
   padding-left: 34px;
   font-size: 16px;
   line-height: 1.375;
@@ -525,10 +526,12 @@ img {
   justify-content: space-between;
   width: 670px;
   height: 470px;
+  overflow: hidden;
 }
 
 .gallery__thumb {
   width: 170px;
+  overflow-y: auto;
 }
 
 .gallery__thumb-item {
@@ -548,8 +551,6 @@ img {
 }
 
 .gallery__full {
-  padding-top: 36px;
-  padding-bottom: 35px;
   width: 470px;
   background-color: #f2f2f2;
 }
@@ -557,7 +558,7 @@ img {
 .gallery__full img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
 }
 
@@ -570,8 +571,6 @@ img {
     height: auto;
   }
   .gallery__full {
-    padding-top: 15px;
-    padding-bottom: 14px;
     width: 70%;
   }
 }
@@ -593,8 +592,6 @@ img {
     height: auto;
   }
   .gallery__full {
-    padding-top: 15px;
-    padding-bottom: 14px;
     width: 65%;
   }
 }
@@ -603,6 +600,10 @@ img {
 .choice__title {
   margin-top: 13px;
   margin-bottom: 13px;
+}
+
+.choice__description {
+  margin-bottom: 10px;
 }
 
 .choice__block {
@@ -786,6 +787,24 @@ img {
 
 .description-item__content {
   padding: 11px 40px 87px;
+}
+
+@media (max-width: 767px) {
+  .description-item {
+    margin-bottom: 20px;
+  }
+  .description-item__btn {
+    padding: 19px 100px 20px 20px;
+    font-size: 14px;
+    line-height: 1.28571;
+  }
+  .description-item__btn svg {
+    top: calc(50% - 5.5px);
+    right: 20.5px;
+  }
+  .description-item__content {
+    padding: 11px 20px 50px;
+  }
 }
 
 /*--------------------------------Other--------------------------------*/
@@ -2468,14 +2487,14 @@ div.bread-crumb__item {
     display: none;
   }
   .bread-crumb + main {
-    padding-top: 30px;
-    padding-bottom: 95px;
+    padding-top: 30px !important;
+    padding-bottom: 95px !important;
   }
 }
 
 @media (max-width: 767px) {
   .bread-crumb + main {
-    padding-bottom: 40px;
+    padding-bottom: 40px !important;
   }
 }
 
@@ -2661,6 +2680,10 @@ div.bread-crumb__item {
   justify-content: space-between;
 }
 
+.order-page main {
+  padding-bottom: 130px;
+}
+
 .order-wrapp {
   margin-bottom: 70px;
 }
@@ -2675,6 +2698,10 @@ div.bread-crumb__item {
 
 .order__choice-block:last-child {
   margin-bottom: 0;
+}
+
+.order__description-list {
+  margin-top: 70px;
 }
 
 @media (max-width: 1170px) {

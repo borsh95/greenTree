@@ -31,11 +31,19 @@ let scrollHeader = (function () {
 }());
 
 //dropdown 
-function dropdown(parentEL, propertyChange = 'height', collapse = false) {
+function dropdown(parentEL, propertyChange = 'height', isCollapsing = false) {
 	let dropdownBtn = parentEL.querySelector('.dropdownBtn');
 	let dropdownWrap = parentEL.querySelector('.dropdownEl');
 
-	dropdownBtn.addEventListener("click", function () {
+	dropdownBtn.addEventListener("click", function (e) {
+		e.stopPropagation();
+
+		// if (isCollapsing && parentEL.querySelector('.dropdownBtn.active') && !parentEL.querySelector('.dropdownBtn.active').matches(dropdownBtn)) {
+		// 	parentEL.querySelector('.dropdownBtn.active').classList.remove('active');
+		// 	parentEL.querySelector('.dropdownEl.active').style.cssText = `${propertyChange}: 0;`;
+		// 	parentEL.querySelector('.dropdownEl.active').classList.remove('active');
+		// }
+
 		this.classList.toggle("active");
 
 		if (this.classList.contains('active')) {
@@ -52,7 +60,7 @@ dropdown(document.querySelector('header'), 'height');
 
 if (document.querySelector('.description-item')) {
 	for (let elem of document.querySelectorAll('.description-item')) {
-		dropdown(elem);
+		dropdown(elem, 'min-height', true);
 	}
 }
 

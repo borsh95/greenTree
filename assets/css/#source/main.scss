@@ -1302,14 +1302,14 @@ img {
 		display: none;
 		
 		& + main {
-			padding-top: 30px;
-			padding-bottom: 95px;
+			padding-top: 30px !important;
+			padding-bottom: 95px !important;
 		}
 	}
 
 	@include mobile {
 		& + main {
-			padding-bottom: 40px;
+			padding-bottom: 40px !important;
 		}
 	}
 }
@@ -1507,6 +1507,10 @@ img {
 	display: flex;
 	justify-content: space-between;
 
+	&-page main {
+		padding-bottom: 130px;
+	}
+
 	&-wrapp {
 		margin-bottom: 70px;
 	}
@@ -1521,6 +1525,10 @@ img {
 				margin-bottom: 0;
 			}
 		}
+	}
+
+	&__description-list {
+		margin-top: 70px;
 	}
 
 	@include table {
