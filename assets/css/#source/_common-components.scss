@@ -186,9 +186,14 @@
 	background-color: #fff;
 	border: 2px solid #fff;
 
-	svg path {
-		fill: $color4;
-		transition: fill $duration;
+	svg {
+		width: 22px;
+		height: 19.8px;
+
+		path {
+			fill: $color4;
+			transition: fill $duration;
+		}
 	}
 	
 	&:hover {
@@ -332,12 +337,23 @@
 		left: 0;
 		width: 100%;
 		max-height: 400px;
+		overflow: auto;
 		background-color: $color2;
+		box-shadow: 0px 10px 20px rgba(73, 73, 73, 0.15);
 		transform: scale(0);
 		transform-origin: center top;
 		transform: scale(1, 0);
 		transition: transform $duration;
 		z-index: 1000;
+
+		&::-webkit-scrollbar  {
+			width: 5px;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: $color1;
+			border-radius: 2px;
+		}
 
 		.b-select__header.active + & {
 			transform: scale(1, 1);
@@ -354,31 +370,18 @@
 			text-overflow: ellipsis;
 			overflow: hidden;
 			padding: 0 15px;
-			border-bottom: 1px solid #C9C9C9;
+			border-top: 1px solid #C9C9C9;
 
-			&:last-child {
-				border-bottom: none;
+			&:nth-of-type(1) {
+				border-top: none;
 			}
 		}
 	}
 
 	@include mobile {
 		&-container {
-			height: 38px;
 			font-size: 14px;
 			line-height: (22/14);
-		}
-
-		&__header {
-			padding: 8px 40px 8px 15px;
-		}
-
-		&__list {
-			max-height: 304px;
-
-			li {
-				height: 38px;
-			}
 		}
 	}
 }
@@ -400,23 +403,23 @@
 		height: 0;
 		opacity: 0;
 		z-index: -1;
-
-		&:checked ~ span {
-			font-weight: 500;
-			color: $color4;
-		}
-
-		&:checked ~ span::before {
-			background-color: $color1;
-			border-color: $color1;
-		}
-
-		&:checked ~ span::after {
-			opacity: 1;
-		}
 	}
 
-	span {
+	& input:checked ~ &_text {
+		font-weight: 500;
+		color: $color4;
+	}
+
+	& input:checked ~ &__text::before {
+		background-color: $color1;
+		border-color: $color1;
+	}
+
+	&  input:checked ~ &__text::after {
+		opacity: 1;
+	}
+
+	&__text {
 		position: relative;
 		display: inline-block;
 		padding-left: 34px;
@@ -461,7 +464,7 @@
 	@include mobile {
 		margin-bottom: 7px;
 
-		span {
+		&__text {
 			font-size: 14px;
 			line-height: (22/14);
 		}
@@ -536,6 +539,15 @@
 		span {
 			font-size: 16px;
 			line-height: (22/16);
+
+			&::before {
+				width: 20px;
+				height: 20px;
+			}
+
+			&::after {
+				left: 3.8px;
+			}
 		}
 
 	}
@@ -597,6 +609,15 @@
 	&__thumb {
 		width: 170px;
 		overflow-y: auto;
+
+		&::-webkit-scrollbar  {
+			width: 5px;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: $color1;
+			border-radius: 2px;
+		}
 
 		&-item {
 			height: 170px;

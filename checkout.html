@@ -91,8 +91,8 @@
 					</a>
 
 					<!-- Предварительный показ корзины-->
-					<div class="header__basket-preview basket-preview">
-						<div class="basket-preview__item">
+					<div class="header__basket-preview basket-preview ">
+						<div class="basket-preview__item removed-item">
 							<div class="basket-preview__img">
 								<img src="assets/img/header/fir.png">
 							</div>
@@ -104,7 +104,7 @@
 							<div class="basket-preview__remove-btn remove-btn"></div>
 						</div>
 
-						<div class="basket-preview__item">
+						<div class="basket-preview__item removed-item">
 							<div class="basket-preview__img">
 								<img src="assets/img/header/fir.png">
 							</div>
@@ -135,7 +135,8 @@
 				<div class="checkout-page__title title-2">Сheckout</div>
 				<form action="#" class="checkout checkout-form">
 					<div class="checkout__col">
-						<div class="checkout__title title-3">Billing details</div>
+						<div class="checkout__title title-3"><span>Billing details</span> <span>Order</spanBilling>
+						</div>
 						<div class="checkout__details">
 							<div class="checkout__details-input b-input">
 								<div class="input">
@@ -184,6 +185,18 @@
 									<option value="1">Delivery period</option>
 									<option value="1">Delivery period</option>
 									<option value="1">Delivery period</option>
+									<option value="1">Delivery period</option>
+									<option value="1">Delivery period</option>
+									<option value="1">Delivery period</option>
+									<option value="1">Delivery period</option>
+									<option value="1">Delivery period</option>
+									<option value="1">Delivery period</option>
+									<option value="1">Delivery period</option>
+									<option value="1">Delivery period</option>
+									<option value="1">Delivery period</option>
+									<option value="1">Delivery period</option>
+									<option value="1">Delivery period</option>
+									<option value="1">Delivery period</option>
 								</select>
 							</div>
 
@@ -196,8 +209,72 @@
 								</select>
 							</div>
 						</div>
-						<div class="checkout__title title-3">Additional information</div>
+						<div class="checkout__dates dates">
+							<h1 class="checkout__title title-3">Dates</h1>
+							<div class="dates__title">Delivery period</div>
+							<div class="dates__bSelect">
+								<select class="b-select">
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+								</select>
+							</div>
+							<div class="dates__title">Collection period</div>
+							<div class="dates__bSelect">
+								<select class="b-select">
+									<option value="1">I want to keep Christmas tree</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+									<option value="1">November 27th-December 4th</option>
+								</select>
+							</div>
+						</div>
+
 						<div class="checkout__additionally additionally">
+							<div class="checkout__title title-3"><span>Additional information</span>
+								<span>Details</span>
+							</div>
 							<div class="additionally-textarea b-input">
 								<div class="textarea">
 									<textarea name="additionally" placeholder="Order notes"></textarea>
@@ -218,29 +295,70 @@
 						</div>
 					</div>
 					<div class="checkout__col">
-						<div class="checkout__title title-3">Your order</div>
 						<div class="checkout__fl-order fl-order">
+							<div class="checkout__title title-3">Your order</div>
 							<div class="fl-order__header">
-								<div class="fl-order__header-item title-4">Product</div>
+								<div class="fl-order__header-item title-4">fl-product</div>
 								<div class="fl-order__header-item title-4">Total</div>
 							</div>
 							<div class="fl-order__body">
 								<div class="fl-order__body-description">
 									<div class="fl-order__body-name title-4">Canadian Fir</div>
-									<div class="fl-order__body-property title-4"">80-100 cm</div>
-									<div class=" fl-order__body-town title-4"">Vienne</div>
-									<div class="fl-order__body-quantity title-4"">X <span>1</span></div>
+									<div class="fl-order__body-property title-4">80-100 cm</div>
+									<div class="fl-order__body-town title-4">Vienne</div>
+									<div class="fl-order__body-quantity title-4">X <span>1</span></div>
 								</div>
-								<div class=" fl-order__body-price title-4""><span>83</span> € </div>
-									<div class="fl-order__body-title title-4">Subtotal</div>
-									<div class="fl-order__body-subtotal title-4""><span>83</span> €</div>
+								<div class=" fl-order__body-price title-4"><span>83</span> € </div>
+								<div class="fl-order__body-title title-4">Subtotal</div>
+								<div class="fl-order__body-subtotal title-4"><span>83</span> €</div>
 								<div class=" fl-order__body-title title-4">Total</div>
-									<div class="fl-order__body-total title-4""><span>83</span> €</div>
+								<div class="fl-order__body-total title-4"><span>83</span> €</div>
+							</div>
+							<div class="fl-products checkout__fl-products">
+								<div class="fl-product removed-item">
+									<div class="fl-product__img">
+										<img src="assets/img/checkaut/prod-1.jpg">
+									</div>
+									<div class="fl-product__btn-remove remove-btn"></div>
+									<div class="fl-product__col">
+										<div class="fl-product__name">Nordman Fir</div>
+										<div class="fl-product__row">
+											<div class="fl-product__qty">Qty: <span>2</span></div>
+											<div class="fl-product__price"><span>70</span> €</div>
+										</div>
+									</div>
+									<div class="fl-product__description">
+										<div class="fl-product__description-height">80-100 cm 70 €</div>
+										<div class="fl-product__description-town">Vienne</div>
+									</div>
 								</div>
-								<div class=" fl-order__btn btn">Place order</div>
+								<div class="fl-product removed-item">
+									<div class="fl-product__img">
+										<img src="assets/img/checkaut/prod-1.jpg">
+									</div>
+									<div class="fl-product__btn-remove remove-btn"></div>
+									<div class="fl-product__col">
+										<div class="fl-product__name">Nordman Fir</div>
+										<div class="fl-product__row">
+											<div class="fl-product__qty">Qty: <span>2</span></div>
+											<div class="fl-product__price"><span>70</span> €</div>
+										</div>
+									</div>
+									<div class="fl-product__description">
+										<div class="fl-product__description-height">80-100 cm 70 €</div>
+										<div class="fl-product__description-town">Vienne</div>
+									</div>
+								</div>
+								<div class="fl-products__cost">
+									<div class="fl-products__cost-text">Total cost:</div>
+									<div class="fl-products__cost-value"><span>280</span> €</div>
 								</div>
 							</div>
+							<div class="fl-order__btn btn">Place order</div>
 						</div>
+					</div>
+				</form>
+
 				</form>
 			</div>
 

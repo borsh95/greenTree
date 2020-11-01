@@ -175,6 +175,14 @@ if (document.querySelector('.b-select')) {
 		bSelect(select);
 	}
 }
+//Удаление элементов
+if (document.querySelector('.removed-item')) {
+	for (elem of document.querySelectorAll('.remove-btn')) {
+		elem.addEventListener('click', function () {
+			this.closest('.removed-item').remove();
+		})
+	}
+}
 
 // Управление input через кнопки 
 if (document.querySelector('.number-picker')) {
