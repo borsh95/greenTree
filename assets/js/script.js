@@ -30,33 +30,6 @@ let scrollHeader = (function () {
 	return headerScroll();
 }());
 
-//dropdown 
-function dropdown(parentEL, propertyChange = 'height', isCollapsing = false) {
-	let dropdownBtn = parentEL.querySelector('.dropdownBtn');
-	let dropdownItem = parentEL.querySelector('.dropdownEl');
-	let dropdownWrapp = (isCollapsing) ? parentEL.closest('.dropdownWrapp') : null;
-
-	dropdownBtn.addEventListener("click", function (e) {
-		e.stopPropagation();
-
-		this.classList.toggle("active");
-
-		if (isCollapsing && dropdownWrapp.querySelector('.dropdownEl.active')) {
-			dropdownWrapp.querySelector('.dropdownEl.active').previousElementSibling.classList.remove('active');
-			parentEL.parentElement.querySelector('.dropdownEl.active').style.cssText = `${propertyChange}: 0;`;
-			parentEL.parentElement.querySelector('.dropdownEl.active').classList.remove('active');
-		}
-
-		if (this.classList.contains('active')) {
-			dropdownItem.classList.add('active');
-			dropdownItem.style.cssText = `${propertyChange}: ${dropdownItem.scrollHeight}px`;
-		} else {
-			dropdownItem.style.cssText = `${propertyChange}: 0;`;
-			dropdownItem.classList.remove('active');
-		}
-	});
-}
-
 dropdown(document.querySelector('header'), 'height');
 
 if (document.querySelector('.description-item')) {
@@ -106,11 +79,18 @@ languagesBtns.addEventListener('click', function (e) {
 
 //main slider 
 if (document.querySelector('.main-slider')) {
+	let countSlide = document.querySelectorAll('.main-slider .swiper-slide').length;
+
 	new Swiper('.main-slider', {
 		loop: true,
 
 		pagination: {
 			el: '.main-slider .swiper-pagination',
+			clickable: true,
+			renderBullet: function (index, className) {
+				return `<span class="` + className + `"><svg><circle cx="8" cy="8" r="6" style="stroke-dashoffset: calc(37.7 - (37.7 * ${(index + 1) / countSlide * 100}) / 100);
+			"></circle></svg></span>`;
+			}
 		},
 	});
 }
@@ -170,11 +150,23 @@ if (document.querySelector('.showcase.swiper-container')) {
 	window.addEventListener('resize', sliderShowcaseToggle, false);
 }
 
+
+//Кастомный селект
 if (document.querySelector('.b-select')) {
 	for (let select of document.querySelectorAll('.b-select')) {
 		bSelect(select);
 	}
 }
+
+//Слайдер товаров
+if (document.querySelector('.gallery')) {
+	let galleries = document.querySelectorAll('.gallery');
+
+	for (gallery of galleries) {
+		gallerySlider(gallery);
+	}
+}
+
 //Удаление элементов
 if (document.querySelector('.removed-item')) {
 	for (elem of document.querySelectorAll('.remove-btn')) {
@@ -197,6 +189,19 @@ if (document.querySelector('.cart__item')) {
 		calculatingPrice(elem);
 	}
 };
+
+//masks
+if (document.querySelector('[type="tel"]')) {
+	let inputsTel = document.querySelectorAll('[type="tel"]');
+
+	let maskOptions = {
+		mask: '+{375}(00)000-00-00',
+	}
+
+	for (input of inputsTel) {
+		let mask = IMask(input, maskOptions);
+	}
+}
 
 //Подсчет цены товара
 function calculatingPrice(cart) {
@@ -255,6 +260,33 @@ function numberPicker(elem) {
 					min;
 	});
 };
+
+//dropdown 
+function dropdown(parentEL, propertyChange = 'height', isCollapsing = false) {
+	let dropdownBtn = parentEL.querySelector('.dropdownBtn');
+	let dropdownItem = parentEL.querySelector('.dropdownEl');
+	let dropdownWrapp = (isCollapsing) ? parentEL.closest('.dropdownWrapp') : null;
+
+	dropdownBtn.addEventListener("click", function (e) {
+		e.stopPropagation();
+
+		this.classList.toggle("active");
+
+		if (isCollapsing && dropdownWrapp.querySelector('.dropdownEl.active')) {
+			dropdownWrapp.querySelector('.dropdownEl.active').previousElementSibling.classList.remove('active');
+			parentEL.parentElement.querySelector('.dropdownEl.active').style.cssText = `${propertyChange}: 0;`;
+			parentEL.parentElement.querySelector('.dropdownEl.active').classList.remove('active');
+		}
+
+		if (this.classList.contains('active')) {
+			dropdownItem.classList.add('active');
+			dropdownItem.style.cssText = `${propertyChange}: ${dropdownItem.scrollHeight}px`;
+		} else {
+			dropdownItem.style.cssText = `${propertyChange}: 0;`;
+			dropdownItem.classList.remove('active');
+		}
+	});
+}
 
 //Стилизованный select
 function bSelect(el) {
@@ -322,6 +354,8 @@ function bSelect(el) {
 		bSelectItems[i].addEventListener('click', () => {
 			_this.options[i].selected = true;
 			bSelectValue.textContent = _this.options[i].text;
+			bSelectList.querySelector('[data-selected="selected"]').removeAttribute('data-selected');
+			bSelectItems[i].dataset.selected = 'selected';
 
 			if (bSelectHeader.classList.contains('active')) {
 				bSelectHeader.classList.remove('active');
@@ -340,6 +374,75 @@ function bSelect(el) {
 
 	parent.append(bSelectHeader);
 	parent.append(bSelectList)
+}
+
+//Галлерея картинок
+function gallerySlider(elem) {
+	let request,
+		current,
+		cahe = {},
+		full = elem.querySelector('.gallery__full'),
+		thumbs = elem.querySelector('.gallery__thumb');
+
+
+	thumbs.addEventListener('click', function (e) {
+
+		let target = e.target.closest('.gallery__thumb-item');
+
+		if (!target) return;
+
+		e.preventDefault();
+
+		let img,
+			src = target.getAttribute("href"),
+			request = src;
+
+		// thumbs.querySelector('.gallery__thumbs-item.active').classList.remove('active');
+		// target.classList.add('active');
+
+		if (src in cahe) {
+			if (!cahe[src].isLoading) {
+				crossfade(cahe[src].img)
+			}
+		} else {
+			img = document.createElement('img');
+
+			cahe[src] = {
+				img: img,
+				isLoading: true,
+			}
+
+			full.classList.add('is-loading');
+			full.append(img);
+
+			img.setAttribute('src', src);
+
+			img.onload = function () {
+				img.style.display = 'none';
+
+				full.classList.remove('is-loading');
+				cahe[src].isLoading = false;
+
+				if (request === src) {
+					crossfade(img)
+				}
+			}
+		}
+	})
+
+	thumbs.querySelectorAll('.gallery__thumb-item')[0].click();
+
+	function crossfade(img) {
+
+		if (current) {
+			console.log(current)
+			current.style.display = 'none';
+		}
+
+		img.style.display = '';
+		current = img;
+	}
+
 }
 
 
