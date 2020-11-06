@@ -1767,6 +1767,8 @@ footer .container::before {
   height: 16px;
   opacity: 0;
   transform: translate(-50%, -50%);
+  transform-origin: left;
+  transform: rotate(-90deg);
   transition: opacity 0.3s;
 }
 
@@ -1777,7 +1779,6 @@ footer .container::before {
   stroke: #1B1B1E;
   stroke-width: 4px;
   stroke-dasharray: 37.7;
-  stroke-dashoffset: calc(37.7 - (37.7 * 60) / 100);
   stroke-linecap: butt;
 }
 

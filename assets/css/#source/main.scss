@@ -184,6 +184,8 @@ img {
 				height: 16px;
 				opacity: 0;
 				transform: translate(-50%, -50%);
+				transform-origin: left;
+				transform: rotate(-90deg);
 				transition: opacity $duration;
 
 				circle {
@@ -193,7 +195,6 @@ img {
 					stroke: $color3;
 					stroke-width: 4px;
 					stroke-dasharray: 37.7;
-					stroke-dashoffset: calc(37.7 - (37.7 * 60) / 100);
 					stroke-linecap: butt;
 				}
 			}
