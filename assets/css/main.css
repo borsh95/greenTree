@@ -472,6 +472,10 @@ img {
   padding: 12px 40px 12px 15px;
   height: inherit;
   background-color: #F2F2F2;
+  z-index: 999;
+}
+
+.b-select__header.active {
   z-index: 1002;
 }
 
